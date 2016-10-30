@@ -26,7 +26,7 @@
     "coveralls": "^2.11.14",
     "eslint": "^3.9.0",
     "eslint-config-defaults": "^9.0.0",
-    "jenkins-mocha": "^3.0.4",
+    "jenkins-mocha": "^2.6.0",
     "mocha": "^3.1.2",
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.1.3"
