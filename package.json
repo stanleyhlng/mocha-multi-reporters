@@ -24,10 +24,10 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
-    "eslint": "^1.10.3",
-    "eslint-config-defaults": "^7.1.1",
-    "jenkins-mocha": "^2.6.0",
-    "mocha": "^2.5.3",
+    "eslint": "^3.9.0",
+    "eslint-config-defaults": "^9.0.0",
+    "jenkins-mocha": "^3.0.4",
+    "mocha": "^3.1.2",
     "mocha-lcov-reporter": "^1.2.0",
     "pre-commit": "^1.1.3"
   },
