@@ -2,6 +2,7 @@
 var _require = require('root-require');
 var expect = require('chai').expect;
 var Mocha = require('mocha');
+var sinon = require('sinon');
 var Suite = Mocha.Suite;
 var Runner = Mocha.Runner;
 var Test = Mocha.Test;
@@ -133,6 +134,32 @@ describe('lib/MultiReporters', function () {
                 });
             });
         });
+
+        describe('#exception', function () {
+            var err;
+            beforeEach(function () {
+                err = new Error('JSON.parse error!');
+                sinon.stub(JSON, 'parse').throws(err);
+            });
+
+            afterEach(function () {
+                JSON.parse.restore();
+            });
+
+            it('throw an exception in default options', function () {
+                expect(JSON.parse.callCount).to.equal(0);
+                expect(reporter.getDefaultOptions.bind(this)).to.throw(err);
+                expect(JSON.parse.threw()).to.equal(true);
+                expect(JSON.parse.callCount).to.equal(1);
+            });
+
+            it('throw an exception in custom options', function () {
+                expect(JSON.parse.callCount).to.equal(0);
+                expect(reporter.getCustomOptions.bind(this, options)).to.throw(err);
+                expect(JSON.parse.threw()).to.equal(true);
+                expect(JSON.parse.callCount).to.equal(1);
+            });
+        });        
     });
 
     describe('#test', function () {
