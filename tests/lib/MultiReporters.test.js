@@ -110,26 +110,54 @@ describe('lib/MultiReporters', function () {
         });
 
         describe('#external', function () {
-            beforeEach(function () {
-                var mocha = new Mocha({
-                    reporter: MultiReporters
+            describe('json', function() {
+                beforeEach(function () {
+                    var mocha = new Mocha({
+                        reporter: MultiReporters
+                    });
+                    suite = new Suite('#external-multi-reporter', 'root');
+                    runner = new Runner(suite);
+                    options = {
+                        execute: false,
+                        reporterOptions: {
+                            configFile: 'tests/custom-external-config.json'
+                        }
+                    };
+                    reporter = new mocha._reporter(runner, options);
                 });
-                suite = new Suite('#external-multi-reporter', 'root');
-                runner = new Runner(suite);
-                options = {
-                    execute: false,
-                    reporterOptions: {
-                        configFile: 'tests/custom-external-config.json'
-                    }
-                };
-                reporter = new mocha._reporter(runner, options);
+
+                describe('#options (external reporters - single)', function () {
+                    it('return reporter options: "dot"', function () {
+                        expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
+                            id: 'mocha-junit-reporter',
+                            mochaFile: 'junit.xml'
+                        });
+                    });
+                });
             });
 
-            describe('#options (external reporters - single)', function () {
-                it('return reporter options: "dot"', function () {
-                    expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
-                        id: 'mocha-junit-reporter',
-                        mochaFile: 'junit.xml'
+            describe('js', function() {
+                beforeEach(function () {
+                    var mocha = new Mocha({
+                        reporter: MultiReporters
+                    });
+                    suite = new Suite('#external-multi-reporter', 'root');
+                    runner = new Runner(suite);
+                    options = {
+                        execute: false,
+                        reporterOptions: {
+                            configFile: 'tests/custom-external-config.js'
+                        }
+                    };
+                    reporter = new mocha._reporter(runner, options);
+                });
+
+                describe('#options (external reporters - single)', function () {
+                    it('return reporter options: "dot"', function () {
+                        expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
+                            id: 'mocha-junit-reporter',
+                            mochaFile: 'junit.xml'
+                        });
                     });
                 });
             });
@@ -138,6 +166,13 @@ describe('lib/MultiReporters', function () {
         describe('#exception', function () {
             var err;
             beforeEach(function () {
+              options = {
+                  execute: false,
+                  reporterOptions: {
+                      configFile: 'tests/custom-external-config.json'
+                  }
+              };
+
                 err = new Error('JSON.parse error!');
                 sinon.stub(JSON, 'parse').throws(err);
             });
@@ -159,7 +194,7 @@ describe('lib/MultiReporters', function () {
                 expect(JSON.parse.threw()).to.equal(true);
                 expect(JSON.parse.callCount).to.equal(1);
             });
-        });        
+        });
     });
 
     describe('#test', function () {
