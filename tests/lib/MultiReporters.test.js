@@ -110,6 +110,13 @@ describe('lib/MultiReporters', function () {
         });
 
         describe('#external', function () {
+            var checkReporterOptions = function (options) {
+                expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
+                    id: 'mocha-junit-reporter',
+                    mochaFile: 'junit.xml'
+                });
+            };
+
             describe('json', function() {
                 beforeEach(function () {
                     var mocha = new Mocha({
@@ -128,10 +135,7 @@ describe('lib/MultiReporters', function () {
 
                 describe('#options (external reporters w/ json - single)', function () {
                     it('json: return reporter options: "dot"', function () {
-                        expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
-                            id: 'mocha-junit-reporter',
-                            mochaFile: 'junit.xml'
-                        });
+                        checkReporterOptions(options);
                     });
                 });
             });
@@ -154,10 +158,7 @@ describe('lib/MultiReporters', function () {
 
                 describe('#options (external reporters w/ commonjs - single)', function () {
                     it('commonjs: return reporter options: "dot"', function () {
-                        expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
-                            id: 'mocha-junit-reporter',
-                            mochaFile: 'junit.xml'
-                        });
+                        checkReporterOptions(options);
                     });
                 });
             });
