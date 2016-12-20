@@ -126,8 +126,8 @@ describe('lib/MultiReporters', function () {
                     reporter = new mocha._reporter(runner, options);
                 });
 
-                describe('#options (external reporters - single)', function () {
-                    it('return reporter options: "dot"', function () {
+                describe('#options (external reporters w/ json - single)', function () {
+                    it('json: return reporter options: "dot"', function () {
                         expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
                             id: 'mocha-junit-reporter',
                             mochaFile: 'junit.xml'
@@ -152,8 +152,8 @@ describe('lib/MultiReporters', function () {
                     reporter = new mocha._reporter(runner, options);
                 });
 
-                describe('#options (external reporters - single)', function () {
-                    it('return reporter options: "dot"', function () {
+                describe('#options (external reporters w/ commonjs - single)', function () {
+                    it('commonjs: return reporter options: "dot"', function () {
                         expect(reporter.getReporterOptions(reporter.getOptions(options), 'mocha-junit-reporter')).to.be.deep.equal({
                             id: 'mocha-junit-reporter',
                             mochaFile: 'junit.xml'
