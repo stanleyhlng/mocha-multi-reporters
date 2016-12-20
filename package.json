@@ -1,6 +1,6 @@
 {
   "name": "mocha-multi-reporters",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Generate multiple mocha reports in a single mocha execution.",
   "main": "index.js",
   "scripts": {
