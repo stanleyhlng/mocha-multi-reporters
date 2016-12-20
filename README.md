@@ -6,9 +6,8 @@ Generate multiple mocha reports in a single mocha execution.
 [![npm version](https://img.shields.io/npm/v/mocha-multi-reporters.svg?style=flat-square)](https://www.npmjs.com/package/mocha-multi-reporters)
 [![StyleCI](https://styleci.io/repos/48823069/shield)](https://styleci.io/repos/48823069)
 [![Build Status](https://travis-ci.org/stanleyhlng/mocha-multi-reporters.svg)](https://travis-ci.org/stanleyhlng/mocha-multi-reporters)
+[![bitHound Overall Score](https://www.bithound.io/github/stanleyhlng/mocha-multi-reporters/badges/score.svg)](https://www.bithound.io/github/stanleyhlng/mocha-multi-reporters)
 [![Coverage Status](https://coveralls.io/repos/stanleyhlng/mocha-multi-reporters/badge.svg?branch=master&service=github)](https://coveralls.io/github/stanleyhlng/mocha-multi-reporters?branch=master)
-[![Dependency Status](https://img.shields.io/david/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters)
-[![devDependency Status](https://img.shields.io/david/dev/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters#info=devDependencies)
 
 ## Install
 
