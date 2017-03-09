@@ -45,7 +45,7 @@ $ ./node_modules/.bin/mocha --reporter mocha-multi-reporters
 </testsuite>
 ```
 
-### Advance
+### Advanced
 
 * Generate `spec` and `json` reports.
 
@@ -213,6 +213,27 @@ $ cat xunit-custom.xml
     </testcase>
   </testsuite>
 </testsuites>
+```
+
+* When calling Mocha programmatically
+
+Note that when Mocha is called programmatically, it is passed an options object when created.  This object is usually derived from a config file that your mocha test runner reads prior to instantiation.  This is the object that must contain a key `reporter` with a value of `mocha-multi-reporters` for this plugin to be used.  You can also pass the key `reporterOptions` with a value of any of the above listed config files (including the `reporterEnabled` subkey and any other plugin configuration information.)  This removes the requirement to have an intermediate configuration file specifically for the multireporter configuration.
+
+```js
+var mocha = new Mocha({
+      reporter: "mocha-multi-reporters",
+      timeout: config.testTimeout || 60000,
+      slow: config.slow || 10000,
+      reporterOptions: {
+          "reporterEnabled": "mocha-junit-reporter, tap",
+          "mochaJunitReporterReporterOptions": {
+              "mochaFile": "junit-custom.xml"
+          }
+      }
+    });
+    mocha.addFile(...)
+    mocha.run(...)
+
 ```
 
 ## License
