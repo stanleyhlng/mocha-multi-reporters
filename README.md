@@ -235,6 +235,7 @@ var mocha = new Mocha({
     mocha.run(...)
 
 ```
+Note that it will first check if reporterOptions contains a `configFile` key, and if it does, use that.  That key must not exist in the `reporterOptions` object in order to pass these values in directly.
 
 ## License
 
