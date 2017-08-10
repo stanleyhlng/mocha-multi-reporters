@@ -44,6 +44,28 @@ describe('lib/MultiReporters', function () {
                 reporter = new mocha._reporter(runner, options);
             });
 
+            describe('#done (failures, fn)', function () {
+
+                var mochaDoneArgs = [2, sinon.spy()];
+
+                it('does not throw when there are no reporters available', function() {
+                    expect(reporter.done.bind(reporter, mochaDoneArgs)).not.to.throw();
+                });
+
+                it('executes the #done callback on each applicable reporter with the supplied arguments', function() {
+                    var reporterA = { done: sinon.spy() };
+                    var reporterB = {};
+                    var reporterC = { done: sinon.spy() };
+
+                    reporter._reporters = [reporterA, reporterB, reporterC];
+
+                    reporter.done.apply(reporter, mochaDoneArgs);
+
+                    expect(reporterA.done.firstCall.args).to.deep.equal(mochaDoneArgs);
+                    expect(reporterC.done.firstCall.args).to.deep.equal(mochaDoneArgs);
+                });
+            });
+
             describe('#options (reporters - single)', function () {
                 it('return reporter options: "dot"', function () {
                     expect(reporter.getReporterOptions(reporter.getOptions(options), 'dot')).to.be.deep.equal({
