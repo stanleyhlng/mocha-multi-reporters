@@ -87,6 +87,15 @@ describe('lib/MultiReporters', function () {
                     expect(fn.calledAfter(reporterC.done)).to.be.true;
                     expect(fn.firstCall.args).to.deep.equal([failures]);
                 });
+
+                it('executes fn(failures) when none of the registered reporters have a #done handlers', function () {
+                    reporter._reporters = [{}, {}];
+
+                    reporter.done(failures, fn);
+
+                    expect(fn.callCount).to.equal(1);
+                    expect(fn.firstCall.args).to.deep.equal([failures]);
+                });
             });
 
             describe('#options (reporters - single)', function () {
