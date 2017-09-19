@@ -1,5 +1,5 @@
 {
-    "reporterEnabled": "dot",
+    "reporterEnabled": "dot, tests/custom-internal-reporter",
 
     "xunitReporterOptions": {
         "output": "artifacts/test/custom-xunit.xml"

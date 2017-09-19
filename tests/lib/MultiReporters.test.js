@@ -23,6 +23,7 @@ describe('lib/MultiReporters', function () {
     });
 
     describe('#instance', function () {
+        var mocha;
         var suite;
         var runner;
         var reporter;
@@ -30,7 +31,7 @@ describe('lib/MultiReporters', function () {
 
         describe('#internal', function () {
             beforeEach(function () {
-                var mocha = new Mocha({
+                mocha = new Mocha({
                     reporter: MultiReporters
                 });
                 suite = new Suite('#internal-multi-reporter', 'root');
@@ -135,7 +136,7 @@ describe('lib/MultiReporters', function () {
 
                 it('return custom options', function () {
                     expect(reporter.getCustomOptions(options)).to.be.deep.equal({
-                        reporterEnabled: 'dot',
+                        reporterEnabled: 'dot, tests/custom-internal-reporter',
                         xunitReporterOptions: {
                             output: 'artifacts/test/custom-xunit.xml'
                         }
@@ -144,7 +145,7 @@ describe('lib/MultiReporters', function () {
 
                 it('return resultant options by merging both default and custom options', function () {
                     expect(reporter.getOptions(options)).to.be.deep.equal({
-                        reporterEnabled: 'dot',
+                        reporterEnabled: 'dot, tests/custom-internal-reporter',
                         reporterOptions: {
                             id: 'default'
                         },
@@ -161,6 +162,24 @@ describe('lib/MultiReporters', function () {
                     });
                 });
             });
+
+            describe('#custom-internal-reporter', function () {
+                beforeEach(function() {
+                    options = {
+                        execute: true,
+                        reporterOptions: {
+                            configFile: 'tests/custom-internal-config.json'
+                        }
+                    };
+                    reporter = new mocha._reporter(runner, options);
+                });
+
+                it('return default options for "custom-internal-reporter"', function () {
+                    expect(reporter.getReporterOptions(reporter.getOptions(options), 'custom-internal-reporter')).to.be.deep.equal({
+                        id: 'default',
+                    });
+                });
+            });
         });
 
         describe('#external', function () {
@@ -173,7 +192,7 @@ describe('lib/MultiReporters', function () {
 
             describe('json', function() {
                 beforeEach(function () {
-                    var mocha = new Mocha({
+                    mocha = new Mocha({
                         reporter: MultiReporters
                     });
                     suite = new Suite('#external-multi-reporter', 'root');
@@ -196,7 +215,7 @@ describe('lib/MultiReporters', function () {
 
             describe('js', function() {
                 beforeEach(function () {
-                    var mocha = new Mocha({
+                    mocha = new Mocha({
                         reporter: MultiReporters
                     });
                     suite = new Suite('#external-multi-reporter', 'root');
