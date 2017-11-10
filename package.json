@@ -17,7 +17,6 @@
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^4.16.4",
-    "object-assign-deep": "^0.0.4",
     "root-require": "^0.3.1"
   },
   "devDependencies": {
