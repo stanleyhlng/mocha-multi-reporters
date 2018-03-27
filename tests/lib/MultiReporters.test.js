@@ -29,6 +29,80 @@ describe('lib/MultiReporters', function () {
         var reporter;
         var options;
 
+        describe('#array-function', function() {
+          beforeEach(function () {
+              mocha = new Mocha({
+                  reporter: MultiReporters
+              });
+              suite = new Suite('#internal-multi-reporter', 'root');
+              runner = new Runner(suite);
+              options = {
+                  execute: false,
+                  reporterOptions: {
+                      configFile: 'tests/custom-array-config.json'
+                  }
+              };
+              reporter = new mocha._reporter(runner, options);
+          });
+
+          it('return options from an array of string names', function () {
+            expect(reporter.getOptions(options)).to.be.deep.equal({
+                reporterEnabled: ['dot', 'tests/custom-internal-reporter'],
+                reporterOptions: {
+                    id: 'default'
+                },
+                dotReporterOptions: {
+                    id: 'dot'
+                },
+                xunitReporterOptions: {
+                    id: 'xunit',
+                    output: 'artifacts/test/custom-xunit.xml'
+                },
+                tapReporterOptions: {
+                    id: 'tap'
+                }
+            });
+          })
+        })
+        
+        describe('#array-string', function() {
+          beforeEach(function () {
+              mocha = new Mocha({
+                  reporter: MultiReporters
+              });
+              suite = new Suite('#internal-multi-reporter', 'root');
+              runner = new Runner(suite);
+              options = {
+                  execute: false,
+                  reporterOptions: {
+                      configFile: 'tests/custom-array-config.json'
+                  }
+              };
+              reporter = new mocha._reporter(runner, options);
+          });
+
+          it('return options from an array of string names', function () {
+            expect(reporter.getOptions(options)).to.be.deep.equal({
+                reporterEnabled: ['dot', 'tests/custom-internal-reporter'],
+                reporterOptions: {
+                    id: 'default'
+                },
+                dotReporterOptions: {
+                    id: 'dot'
+                },
+                xunitReporterOptions: {
+                    id: 'xunit',
+                    output: 'artifacts/test/custom-xunit.xml'
+                },
+                tapReporterOptions: {
+                    id: 'tap'
+                }
+            });
+          })
+        })
+
+
+
         describe('#internal', function () {
             beforeEach(function () {
                 mocha = new Mocha({
