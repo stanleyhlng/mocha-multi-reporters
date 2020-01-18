@@ -19,7 +19,7 @@
     "lodash": "^4.16.4"
   },
   "peerDependencies": {
-    "mocha": "^3.1.2"
+    "mocha": ">=3.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
