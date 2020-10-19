@@ -24,7 +24,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
-    "eslint": "^6.6.0",
+    "eslint": "^4.18.2",
     "eslint-config-defaults": "^9.0.0",
     "jenkins-mocha": "^2.6.0",
     "mocha-lcov-reporter": "^1.2.0",
