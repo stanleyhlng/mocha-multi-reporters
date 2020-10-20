@@ -24,7 +24,7 @@ before_deploy:
 deploy:
   - provider: releases
     api_key:
-      secure: @@@@@@@stanley api key
+      secure: os3PhiyAVCtZw0rrFIl06LZVVCaifosZrMnjJxRcnjEjdqpybsQUdjWxj3JMIIC0sjrQmk4NvMCbgw23zP4BemsGcPelzeFH/fx6nu9nSBYNx9Bq2cNBP4+wvFgdTLyphzk5z24UZ3MlJWpb7xXR6mn76k5knvH5WS67hdZ8EWMaQOPWiQq57sSI/hautBeQpwdU0+vzXdf6gWDK7bCuGAYMvjLRa6JIU242GuzS1vPrdjatfXEJmot6PtBLt042T2v56ijw1eAHc3Z9AxN0t8FySZd7up/YsQcQvOXrWShmp2yt1nO19WGozEO1t0XDub19Rx7jNwOv7LLKPJbD9gkjZ/LlTxZuWjj8KJxWt45Hn+GWEueyqsDdRSH2ZuPDFpRza4V2E5SjuP8FO0+uQlb2qnSFH/psWwK/dikjvbqaAE6vZbel0xKzxg54n1NIni/olpWh/iiUB3I9o0w/UM/yXN8rh4CaYwyW8dOAql3dBhW42r+guFjXb6YfPq+zEbYhNjBLFk9hEV92qpCJ4xH+noNmszrO5Ybgp+AQDtxqIfsKX+841T1Ca401xPpYuPHGRe9Bmz96P/HmFOE8iXzQPwZMridZkTocwfoZjUxsFkxz3JJJ+vNwh7M7OmYqoTLSCUyX8RPqItPUmmBGnw0gYtGBQtgt3kHGlbOTR3c=
     file: mocha-multi-reporters.tar.gz
     skip_cleanup: true
     on:
