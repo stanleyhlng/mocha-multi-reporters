@@ -24,12 +24,12 @@ before_deploy:
 deploy:
   - provider: releases
     api_key:
-      secure: YlZkFy8FBs7zzTbsRuP+rW4vpB5ui9prDvS/XqouDjdOb2k35z1z0pu3UBk298zCGklKqh4MGEt15jFRilEM4YogSGloswnlQKnviR92JyP8nqKN1yaO/BRTlW6+xyYhpjm5ZjJinMBtfwWKSPWe1SmHSLLxkaZo/MmuXLxTiNYqJs9jtrTCj/TDtFOCTDc0mprm97QaET+LuG+PmzG1JXEcbsNVBa+YW5MUqOD9BPAbbiGJb/r+BlCGreNUwyvvnMAnvefVUlRDw7l+hwbPwhRts3+nfAM2dH6vPcLFgb7VomsFUPTXAwOObX3thubptFtcxlNgPwpAbncIboqQkFUbeLc8I2hQyp9oxkxJnrN8KodB1vGTujWHzAn1+Xml1XZ6RgCLawdfwqDADaqpUT4zaBbKrGXrc0EZ3kF0c+QsCl+BZOa5AVKJOEm/KJX2/kRtatG8cI7RDjo5icOwhyXGKsrrnjMIrZWKhNDnbExPZxy17oevQYX7+YT489UqrSytmMZwmPVZ+uQJEmQiny3racJoT7VESL3UAMDhEdP+WBlmp5DRW7aLnOMLRO/d6SDkAUg2ykN1Pwjt6jfGTaNVfULSzGGtFFkna//kw01Bq3511W60A9Uafrae0SM7l6azTfw/tYGh3l/48W8eVq8pF5Sz06bLysyObDC5Xo8=
+      secure: @@@@@@@stanley api key
     file: cypress-multi-reporters.tar.gz
     skip_cleanup: true
     on:
       tags: true
-      repo: YOU54F/cypress-multi-reporters
+      repo: stanleyhlng/cypress-multi-reporters
       branch: automatedRelease
       node: "10"
   - provider: script

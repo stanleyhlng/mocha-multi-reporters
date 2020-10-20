@@ -248,7 +248,7 @@ mocha --reporter cypress-multi-reporters --reporterOptions configFile=cypress-mu
 ```
 
 ```js
-// cypress-multi-reporters.json
+// mocha-multi-reporters.json
 {
   "mochajsJsonFileReporterReporterOptions": {
     "output": "tests/results/file-{id}.json"
@@ -268,7 +268,7 @@ Note that when Mocha is called programmatically, it is passed an options object 
 
 ```js
 const mocha = new Mocha({
-      reporter: "cypress-multi-reporters",
+      reporter: "mocha-multi-reporters",
       timeout: config.testTimeout || 60000,
       slow: config.slow || 10000,
       reporterOptions: {
