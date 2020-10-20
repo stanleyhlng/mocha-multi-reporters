@@ -19,17 +19,17 @@ after_success:
 - cat artifacts/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:
 - npm prune --production
-- tar -czvf cypress-multi-reporters.tar.gz package.json index.js lib/* config.json LICENSE README.md CHANGELOG.md
+- tar -czvf mocha-multi-reporters.tar.gz package.json index.js lib/* config.json LICENSE README.md CHANGELOG.md
 - npm run deploy:prepare
 deploy:
   - provider: releases
     api_key:
       secure: @@@@@@@stanley api key
-    file: cypress-multi-reporters.tar.gz
+    file: mocha-multi-reporters.tar.gz
     skip_cleanup: true
     on:
       tags: true
-      repo: stanleyhlng/cypress-multi-reporters
+      repo: stanleyhlng/mocha-multi-reporters
       branch: automatedRelease
       node: "10"
   - provider: script

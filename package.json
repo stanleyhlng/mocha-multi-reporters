@@ -1,6 +1,6 @@
 {
   "name": "mocha-multi-reporters",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Generate multiple mocha reports in a single mocha execution.",
   "main": "index.js",
   "nyc": {
@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "test": "nyc mocha --require chai/register-expect --timeout 5000 tests/**/*.test.js*",
     "deploy:prepare": "./scripts/create_npmrc_file.sh",
-    "release": "standard-version --release-as 1.4.0"
+    "release": "standard-version --release-as 1.4.1"
   },
   "author": "Stanley Ng <stanleyhlng77-dev@yahoo.com.hk",
   "contributors": [
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/you54f/cypress-multi-reporters"
+    "url": "https://github.com/you54f/mocha-multi-reporters"
   },
   "engines": {
     "node": ">=6.0.0"

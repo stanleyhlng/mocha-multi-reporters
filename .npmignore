@@ -13,7 +13,7 @@ xunit.xml
 commitlint.config.js
 .nyc_output/
 coverage
-cypress-multi-reporters.tar.gz
+mocha-multi-reporters.tar.gz
 node_modules
 scripts
 
@@ -29,4 +29,4 @@ xunit.xml
 commitlint.config.js
 .nyc_output/
 coverage
-cypress-multi-reporters.tar.gz
+mocha-multi-reporters.tar.gz
