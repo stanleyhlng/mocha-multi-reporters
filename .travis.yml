@@ -1,18 +1,41 @@
-after_success:
-- cat artifacts/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 language: node_js
 node_js:
-- 'iojs'
-- 'node'
-- 'lts/*'
-- '8'
-- '7'
-- '6'
-- '5'
-- '4'
-sudo: false
+- node
+- lts/*
+- 14
+- 12
+- 10
+os:
+- linux
+matrix:
+  fast_finish: true
+cache: yarn
+env:
+  global:
+  - secure: GafZaP9uxJGukTI9UiKlMG5KbrJsin3xn3cRLXVjLLG4ctdPkXY+1w6RPJcRUm0ogCJS95p4HosltayyOQkb1Icve2nuaP4dqi79HKu+OgXqJ2VdNNT1XhK++QThmPrjq11sWank2m7LkbYm+rMj7PzxKUePAmloQUZLypSOQJk7jkQ5KAf0+nQv6K6Oj3xWJyDPFQkokQPc7EreaEV0iKi6RKoOhCed+Ju8KpbzBkj6ksRGwOaEVIkxFn7vNpQPO3X7JXQ/ZNQIB7Pbvolqi6JPuS3s/nnsFTA1Qiv4oQSV90yswH8ZlEZMN2hk8q/S7HzTMPXpZ/GGRNzBThbU+AUyCCiwQ8WzMwS5G0Ks+ICvhYdBc/stVvBpmYq7tQkib2Nj59hjG06AD9D+ZjU3QsmulBQ8jlZaD0zA334y+isQ35LLl6wkfIIzVQIU/dWj8V8x1clKjmhywDPMrTCgimQ9GT+Lk9BHAH0PbmOFQQc+h3ANfrZrypxHX8hhZxC7WxOto4ZGsFcf9nSikVSz9hgVxPlA3+Mkg220zBZEUe/MiBx9Q4ZdL465/NsTmqw6eRkcu28W0BAEVFh3+2GHDAHj4onW2f9PjX/Bdh3s6kXy8NzEFbbPr9wt5HK70x6U9H2rUbPpA2PIyp5UitnihGXXKC4ES1js/IHW0TjV9O4=
+install: yarn install --ignore-engines
+script: ./scripts/build.sh
+after_success:
+- cat artifacts/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+before_deploy:
+- npm prune --production
+- tar -czvf mocha-multi-reporters.tar.gz package.json index.js lib/* config.json LICENSE README.md CHANGELOG.md
+- npm run deploy:prepare
 deploy:
-  provider: npm
-  email: stanleyhlng77-dev@yahoo.com.hk
-  api_key:
-    secure: os3PhiyAVCtZw0rrFIl06LZVVCaifosZrMnjJxRcnjEjdqpybsQUdjWxj3JMIIC0sjrQmk4NvMCbgw23zP4BemsGcPelzeFH/fx6nu9nSBYNx9Bq2cNBP4+wvFgdTLyphzk5z24UZ3MlJWpb7xXR6mn76k5knvH5WS67hdZ8EWMaQOPWiQq57sSI/hautBeQpwdU0+vzXdf6gWDK7bCuGAYMvjLRa6JIU242GuzS1vPrdjatfXEJmot6PtBLt042T2v56ijw1eAHc3Z9AxN0t8FySZd7up/YsQcQvOXrWShmp2yt1nO19WGozEO1t0XDub19Rx7jNwOv7LLKPJbD9gkjZ/LlTxZuWjj8KJxWt45Hn+GWEueyqsDdRSH2ZuPDFpRza4V2E5SjuP8FO0+uQlb2qnSFH/psWwK/dikjvbqaAE6vZbel0xKzxg54n1NIni/olpWh/iiUB3I9o0w/UM/yXN8rh4CaYwyW8dOAql3dBhW42r+guFjXb6YfPq+zEbYhNjBLFk9hEV92qpCJ4xH+noNmszrO5Ybgp+AQDtxqIfsKX+841T1Ca401xPpYuPHGRe9Bmz96P/HmFOE8iXzQPwZMridZkTocwfoZjUxsFkxz3JJJ+vNwh7M7OmYqoTLSCUyX8RPqItPUmmBGnw0gYtGBQtgt3kHGlbOTR3c=
+  - provider: releases
+    api_key:
+      secure: @@@@@@@stanley api key
+    file: mocha-multi-reporters.tar.gz
+    skip_cleanup: true
+    on:
+      tags: true
+      repo: stanleyhlng/mocha-multi-reporters
+      branch: automatedRelease
+      node: "10"
+  - provider: script
+    skip_cleanup: true
+    script: ./scripts/publish.sh
+    on:
+      tags: true
+      branch: automatedRelease
+      node: "12"

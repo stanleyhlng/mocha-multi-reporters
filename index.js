@@ -1,4 +1,5 @@
-/* global require, module */
-var MultiReporters = require('./lib/MultiReporters');
+'use strict';
+
+const MultiReporters = require('./lib/MultiReporters');
 
 module.exports = MultiReporters;

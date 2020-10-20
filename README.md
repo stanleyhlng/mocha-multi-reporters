@@ -1,14 +1,14 @@
-mocha-multi-reporters
-===
+## mocha-multi-reporters
 
 Generate multiple mocha reports in a single mocha execution.
 
-[![npm version](https://img.shields.io/npm/v/mocha-multi-reporters.svg?style=flat-square)](https://www.npmjs.com/package/mocha-multi-reporters)
-[![StyleCI](https://styleci.io/repos/48823069/shield)](https://styleci.io/repos/48823069)
-[![Build Status](https://travis-ci.org/stanleyhlng/mocha-multi-reporters.svg)](https://travis-ci.org/stanleyhlng/mocha-multi-reporters)
-[![Coverage Status](https://coveralls.io/repos/stanleyhlng/mocha-multi-reporters/badge.svg?branch=master&service=github)](https://coveralls.io/github/stanleyhlng/mocha-multi-reporters?branch=master)
-[![Dependency Status](https://img.shields.io/david/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters)
-[![devDependency Status](https://img.shields.io/david/dev/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters#info=devDependencies)
+![npm version](https://img.shields.io/npm/v/mocha-multi-reporters.svg)
+![npm](https://img.shields.io/npm/dm/mocha-multi-reporters.svg)
+[![Build Status](https://travis-ci.org/you54f/mocha-multi-reporters.svg)](https://travis-ci.org/you54f/mocha-multi-reporters)
+[![Coverage Status](https://coveralls.io/repos/YOU54F/mocha-multi-reporters/badge.svg?branch=master&service=github)](https://coveralls.io/github/YOU54F/mocha-multi-reporters?branch=master)
+[![Dependency Status](https://img.shields.io/david/you54f/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/you54f/mocha-multi-reporters)
+[![devDependency Status](https://img.shields.io/david/dev/you54f/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/you54f/mocha-multi-reporters#info=devDependencies)
+
 
 ## Install
 
@@ -45,7 +45,27 @@ $ ./node_modules/.bin/mocha --reporter mocha-multi-reporters
 </testsuite>
 ```
 
-### Advanced
+### Configuring reporters
+
+Set the reporters configuration using `--reporter-options configFile=config.json`.
+- Include reporters in `reporterEnabled` as a comma-delimited list
+  ```js
+  {
+      "reporterEnabled": "spec, @my-org/custom"
+  }
+  ```
+- Specify each reporter's configuration using its camel-cased name, followed by `reporterOptions`, as key.
+  > For scoped reporters such as example @myorg/custom, remove all special characters.
+  ```js
+  {
+      "reporterEnabled": "spec, @my-org/custom",
+      "myOrgCustomReporterOptions": {
+          // [...]
+      }
+  }
+  ```
+
+#### Examples:
 
 * Generate `spec` and `json` reports.
 
@@ -215,12 +235,39 @@ $ cat xunit-custom.xml
 </testsuites>
 ```
 
-* When calling Mocha programmatically
+### `cmrOutput` option
+
+This option lets you dynamically replace the output files of reporter options.
+
+In your Mocha `--reporterOptions`, specify `cmrOutput` with a plug-sign-separated
+list of the reporter name, the property on that reporter's options to have replaced, and the dynamic ID you would like substituted. If you need multiple reporters
+to have dynamic output, add additional plus-sign-separated lists separated by colons.
+
+```sh
+mocha --reporter mocha-multi-reporters --reporterOptions configFile=mocha-multi-reporters.json,cmrOutput=@mochajs/json-file-reporter+output+specialID tests
+```
+
+```js
+// mocha-multi-reporters.json
+{
+  "mochajsJsonFileReporterReporterOptions": {
+    "output": "tests/results/file-{id}.json"
+  },
+  "reporterEnabled": "spec, @mochajs/json-file-reporter"
+}
+```
+
+This will produce an `output` for `@mochajs/json-file-reporter`
+`reporterOptions` with the value:
+
+> tests/results/file-specialID.json
+
+### Programmatic
 
 Note that when Mocha is called programmatically, it is passed an options object when created.  This object is usually derived from a config file that your mocha test runner reads prior to instantiation.  This is the object that must contain a key `reporter` with a value of `mocha-multi-reporters` for this plugin to be used.  You can also pass the key `reporterOptions` with a value of any of the above listed config files (including the `reporterEnabled` subkey and any other plugin configuration information.)  This removes the requirement to have an intermediate configuration file specifically for the multireporter configuration.
 
 ```js
-var mocha = new Mocha({
+const mocha = new Mocha({
       reporter: "mocha-multi-reporters",
       timeout: config.testTimeout || 60000,
       slow: config.slow || 10000,
@@ -241,6 +288,7 @@ Note that it will first check if reporterOptions contains a `configFile` key, an
 
 The MIT License (MIT)
 
+Copyright(c) 2019 Yousaf Nabi
 Copyright(c) 2017 Stanley Ng
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

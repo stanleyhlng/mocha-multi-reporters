@@ -1,46 +1,70 @@
 {
   "name": "mocha-multi-reporters",
-  "version": "1.1.8",
+  "version": "1.4.1",
   "description": "Generate multiple mocha reports in a single mocha execution.",
   "main": "index.js",
+  "nyc": {
+    "reporter": [
+      "html",
+      "text"
+    ]
+  },
   "scripts": {
-    "devtest": "jenkins-mocha --no-coverage --timeout 5000 tests/**/*.test.js*",
-    "lint": "eslint --ext .js .",
-    "test": "JENKINS_MOCHA_COVERAGE=true jenkins-mocha --timeout 5000 tests/**/*.test.js*"
+    "devtest": "nyc mocha --require chai/register-expect --no-coverage --timeout 5000 tests/**/*.test.js*",
+    "lint": "eslint .",
+    "test": "nyc mocha --require chai/register-expect --timeout 5000 tests/**/*.test.js*",
+    "deploy:prepare": "./scripts/create_npmrc_file.sh",
+    "release": "standard-version --release-as 1.4.1"
   },
   "author": "Stanley Ng <stanleyhlng77-dev@yahoo.com.hk",
+  "contributors": [
+    "Yousaf Nabi <yousafn@gmail.com",
+    "Brett Zamir",
+    "Francis Upton IV <francisu@gmail.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stanleyhlng/mocha-multi-reporters"
+    "url": "https://github.com/you54f/mocha-multi-reporters"
   },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "bugs": "https://github.com/stanleyhlng/mocha-multi-reporters/issues",
+  "homepage": "https://github.com/stanleyhlng/mocha-multi-reporters",
   "license": "MIT",
   "dependencies": {
-    "debug": "^3.1.0",
-    "lodash": "^4.16.4"
-  },
-  "peerDependencies": {
-    "mocha": "^3.1.2"
+    "debug": "^4.1.1",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
-    "eslint": "^4.18.2",
-    "eslint-config-defaults": "^9.0.0",
-    "jenkins-mocha": "^2.6.0",
-    "mocha-lcov-reporter": "^1.2.0",
-    "pre-commit": "^1.1.3",
-    "root-require": "^0.3.1",
-    "sinon": "^1.17.6"
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "chai": "4.2.0",
+    "coveralls": "3.1.0",
+    "eslint": "7.11.0",
+    "eslint-config-defaults": "9.0.0",
+    "husky": "4.3.0",
+    "mocha": "7.2.0",
+    "mocha-lcov-reporter": "1.3.0",
+    "nyc": "15.1.0",
+    "sinon": "9.2.0",
+    "standard-version": "8.0.2"
+  },
+  "peerDependencies": {
+    "mocha": ">=3.1.2"
   },
   "keywords": [
     "mocha",
     "reporter"
   ],
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "eslintConfig": {
     "extends": "defaults"
+  },
+  "husky": {
+    "hooks": {
+      "lint": "lint",
+      "test": "test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

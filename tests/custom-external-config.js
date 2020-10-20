@@ -1,8 +1,10 @@
-module.exports = {
-  "reporterEnabled": "mocha-junit-reporter",
+'use strict';
 
-  "mochaJunitReporterReporterOptions": {
-    "id": "mocha-junit-reporter",
-    "mochaFile": "junit.xml"
-  }
-}
+module.exports = {
+    reporterEnabled: 'mocha-junit-reporter',
+
+    mochaJunitReporterReporterOptions: {
+        id: 'mocha-junit-reporter',
+        mochaFile: 'junit.xml'
+    }
+};
