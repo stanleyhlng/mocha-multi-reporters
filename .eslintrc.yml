@@ -1,9 +1,0 @@
----
-rules:
-  brace-style:
-    - 2
-    - stroustrup
-    -
-      allowSingleLine: true
-  no-console:
-    - 0

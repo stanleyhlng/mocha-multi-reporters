@@ -12,3 +12,5 @@ function CustomReporterStub(runner) {
 }
 
 module.exports = CustomReporterStub;
+
+throw new Error('Oops');
