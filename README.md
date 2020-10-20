@@ -4,10 +4,10 @@ Generate multiple mocha reports in a single mocha execution.
 
 ![npm version](https://img.shields.io/npm/v/mocha-multi-reporters.svg)
 ![npm](https://img.shields.io/npm/dm/mocha-multi-reporters.svg)
-[![Build Status](https://travis-ci.org/you54f/mocha-multi-reporters.svg)](https://travis-ci.org/you54f/mocha-multi-reporters)
-[![Coverage Status](https://coveralls.io/repos/YOU54F/mocha-multi-reporters/badge.svg?branch=master&service=github)](https://coveralls.io/github/YOU54F/mocha-multi-reporters?branch=master)
-[![Dependency Status](https://img.shields.io/david/you54f/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/you54f/mocha-multi-reporters)
-[![devDependency Status](https://img.shields.io/david/dev/you54f/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/you54f/mocha-multi-reporters#info=devDependencies)
+[![Build Status](https://travis-ci.org/stanleyhlng/mocha-multi-reporters.svg)](https://travis-ci.org/stanleyhlng/mocha-multi-reporters)
+[![Coverage Status](https://coveralls.io/repos/stanleyhlng/mocha-multi-reporters/badge.svg?branch=master&service=github)](https://coveralls.io/github/stanleyhlng/mocha-multi-reporters?branch=master)
+[![Dependency Status](https://img.shields.io/david/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters)
+[![devDependency Status](https://img.shields.io/david/dev/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters#info=devDependencies)
 
 
 ## Install
