@@ -28,7 +28,6 @@ deploy:
     file: mocha-multi-reporters.tar.gz
     skip_cleanup: true
     on:
-      tags: true
       repo: stanleyhlng/mocha-multi-reporters
       branch: automatedRelease
       node: "10"
@@ -36,6 +35,5 @@ deploy:
     skip_cleanup: true
     script: ./scripts/publish.sh
     on:
-      tags: true
       branch: automatedRelease
       node: "12"
