@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.1](https://github.com/stanleyhlng/mocha-multi-reporters/compare/v1.5.0...v1.5.1) (2020-11-04)
+
+### Bugs
+
+* Added missing config.json file into npm bundle
+
 ## [1.5.0](https://github.com/stanleyhlng/mocha-multi-reporters/compare/v1.1.7...v1.5.0) (2020-11-04)
 
 ### Features
