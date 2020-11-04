@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/stanlyhlng/mocha-multi-reporters/compare/v1.1.7...v1.5.0) (2020-11-04)
+
+### Features
+
+First release after a long time of no maintenance, brings this package current with the [cypress-multi-reporters](https://www.npmjs.com/package/cypress-multi-reporters) changes over
+the last couple of years.
+
+* Bring dependencies to current, including Mocha 8.2.0
+* [#72](https://github.com/stanleyhlng/mocha-multi-reporters/pull/72) Upgrade to pick up YOU54F changes from cypress-multi-reporter until and including 1.4.0
+* [#69](https://github.com/stanleyhlng/mocha-multi-reporters/pull/69) Finding reporter file using current directory does not work with yarn 2
+* [#61](https://github.com/stanleyhlng/mocha-multi-reporters/pull/61) Check reporter
+* npm package cleanup
+
+
 ## [1.4.0](https://github.com/you54f/cypress-multi-reporters/compare/v1.3.0...v1.4.0) (2020-05-12)
 
 

@@ -31,6 +31,5 @@ node_modules
 .idea
 .nyc_output
 
+mocha-multi-reporters*.tgz
 
-yarn.lock
-package-lock.json
