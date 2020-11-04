@@ -1,21 +1,8 @@
 node_modules
 scripts
 
-.github
-artifacts
-tests
-.coveralls.yml
-.eslint*
-.gitignore
-.travis.yml
-yarn.lock
-xunit.xml
-commitlint.config.js
-.nyc_output/
-coverage
-mocha-multi-reporters.tar.gz
-node_modules
-scripts
+.editorconfig
+.idea
 
 .github
 artifacts
@@ -25,8 +12,17 @@ tests
 .gitignore
 .travis.yml
 yarn.lock
+yarn-error.log
 xunit.xml
 commitlint.config.js
 .nyc_output/
 coverage
-mocha-multi-reporters.tar.gz
+node_modules
+scripts
+
+mocha-multi-reporters*.tgz
+
+
+renovate.json
+config.json
+.ncurc.js

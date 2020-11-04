@@ -12,9 +12,7 @@
   "scripts": {
     "devtest": "nyc mocha --require chai/register-expect --no-coverage --timeout 5000 tests/**/*.test.js*",
     "lint": "eslint .",
-    "test": "nyc mocha --require chai/register-expect --timeout 5000 tests/**/*.test.js*",
-    "deploy:prepare": "./scripts/create_npmrc_file.sh",
-    "release": "standard-version --release-as 1.4.1"
+    "test": "nyc mocha --require chai/register-expect --timeout 5000 tests/**/*.test.js*"
   },
   "author": "Stanley Ng <stanleyhlng77-dev@yahoo.com.hk",
   "contributors": [
@@ -32,6 +30,9 @@
   "bugs": "https://github.com/stanleyhlng/mocha-multi-reporters/issues",
   "homepage": "https://github.com/stanleyhlng/mocha-multi-reporters",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "lodash": "^4.17.15"
@@ -62,8 +63,6 @@
   },
   "husky": {
     "hooks": {
-      "lint": "lint",
-      "test": "test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
