@@ -239,7 +239,7 @@ $ cat xunit-custom.xml
 
 This option lets you dynamically replace the output files of reporter options.
 
-In your Mocha `--reporterOptions`, specify `cmrOutput` with a plug-sign-separated
+In your Mocha `--reporterOptions`, specify `cmrOutput` with a plus-sign-separated
 list of the reporter name, the property on that reporter's options to have replaced, and the dynamic ID you would like substituted. If you need multiple reporters
 to have dynamic output, add additional plus-sign-separated lists separated by colons.
 
