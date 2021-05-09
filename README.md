@@ -263,6 +263,8 @@ This will produce an `output` for `@mochajs/json-file-reporter`
 
 > tests/results/file-specialID.json
 
+Note: `cmrOutput` is also supported for compatibility with the `cypress-multi-reporters`.
+
 ### Programmatic
 
 Note that when Mocha is called programmatically, it is passed an options object when created.  This object is usually derived from a config file that your mocha test runner reads prior to instantiation.  This is the object that must contain a key `reporter` with a value of `mocha-multi-reporters` for this plugin to be used.  You can also pass the key `reporterOptions` with a value of any of the above listed config files (including the `reporterEnabled` subkey and any other plugin configuration information.)  This removes the requirement to have an intermediate configuration file specifically for the multireporter configuration.
