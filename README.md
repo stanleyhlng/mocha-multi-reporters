@@ -9,6 +9,7 @@ Generate multiple mocha reports in a single mocha execution.
 [![Dependency Status](https://img.shields.io/david/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters)
 [![devDependency Status](https://img.shields.io/david/dev/stanleyhlng/mocha-multi-reporters.svg?style=flat-square)](https://david-dm.org/stanleyhlng/mocha-multi-reporters#info=devDependencies)
 
+This is functionally the same as `cypress-multi-reporters`; this is the ongoing fork.
 
 ## Install
 
@@ -235,16 +236,16 @@ $ cat xunit-custom.xml
 </testsuites>
 ```
 
-### `cmrOutput` option
+### `mmrOutput` option
 
 This option lets you dynamically replace the output files of reporter options.
 
-In your Mocha `--reporterOptions`, specify `cmrOutput` with a plus-sign-separated
+In your Mocha `--reporterOptions`, specify `mmrOutput` with a plus-sign-separated
 list of the reporter name, the property on that reporter's options to have replaced, and the dynamic ID you would like substituted. If you need multiple reporters
 to have dynamic output, add additional plus-sign-separated lists separated by colons.
 
 ```sh
-mocha --reporter mocha-multi-reporters --reporterOptions configFile=mocha-multi-reporters.json,cmrOutput=@mochajs/json-file-reporter+output+specialID tests
+mocha --reporter mocha-multi-reporters --reporterOptions configFile=mocha-multi-reporters.json,mmrOutput=@mochajs/json-file-reporter+output+specialID tests
 ```
 
 ```js
