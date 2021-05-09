@@ -1,6 +1,7 @@
 'use strict';
 
 const Mocha = require('mocha');
+const {expect} = require('chai');
 const sinon = require('sinon');
 const {Suite} = Mocha;
 const {Runner} = Mocha;
@@ -231,7 +232,19 @@ describe('lib/MultiReporters', function () {
                 };
                 reporter = new mocha._reporter(runner, options);
             });
-            it('return reporter options: "customID" (dynamic output)', function () {
+            it('return reporter options: "customID" (dynamic output) mmr', function () {
+                expect(reporter.getReporterOptions(reporter.getOptions({
+                    reporterOptions: {
+                        mmrOutput: 'tests/custom-internal-reporter+output+customName',
+                        configFile: 'tests/custom-internal-dynamic-output-config.json'
+                    }
+                }), 'tests/custom-internal-reporter')).to.be.deep.equal({
+                    id: 'customID',
+                    output: 'artifacts/test/custom-internal-customName.xml'
+                });
+            });
+
+            it('return reporter options: "customID" (dynamic output) cmr', function () {
                 expect(reporter.getReporterOptions(reporter.getOptions({
                     reporterOptions: {
                         cmrOutput: 'tests/custom-internal-reporter+output+customName',
@@ -246,7 +259,7 @@ describe('lib/MultiReporters', function () {
             it('ignores non-matching reporter options with dynamic output', function () {
                 expect(reporter.getReporterOptions(reporter.getOptions({
                     reporterOptions: {
-                        cmrOutput: 'tests/custom-internal-reporter+output+customName',
+                        mmrOutput: 'tests/custom-internal-reporter+output+customName',
                         configFile: 'tests/custom-internal-dynamic-output-config.json'
                     }
                 }), 'xunit')).to.be.deep.equal({
@@ -256,7 +269,7 @@ describe('lib/MultiReporters', function () {
 
                 expect(reporter.getReporterOptions(reporter.getOptions({
                     reporterOptions: {
-                        cmrOutput: 'tests/custom-internal-reporter+output+customName',
+                        mmrOutput: 'tests/custom-internal-reporter+output+customName',
                         configFile: 'tests/custom-internal-dynamic-output-config.json'
                     }
                 }), 'mocha-junit-reporter')).to.be.deep.equal({
@@ -266,7 +279,7 @@ describe('lib/MultiReporters', function () {
 
                 expect(reporter.getReporterOptions(reporter.getOptions({
                     reporterOptions: {
-                        cmrOutput: ['tests/custom-internal-reporter', 'output', 'customName'],
+                        mmrOutput: ['tests/custom-internal-reporter', 'output', 'customName'],
                         configFile: 'tests/custom-internal-dynamic-output-config.json'
                     }
                 }), 'mocha-junit-reporter')).to.be.deep.equal({
