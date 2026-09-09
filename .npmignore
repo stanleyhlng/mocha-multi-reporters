@@ -24,3 +24,8 @@ mocha-multi-reporters*.tgz
 
 renovate.json
 .ncurc.js
+
+.claude
+.node-version
+CLAUDE.md
+PLAN.md
