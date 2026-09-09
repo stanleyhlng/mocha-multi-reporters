@@ -2,16 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.5.2](https://github.com/stanleyhlng/mocha-multi-reporters/compare/v1.5.1...v1.5.2) (2026-09-09)
-
-
-### Bug Fixes
-
-* support both mmroutput and cmroutput [#33](https://github.com/stanleyhlng/mocha-multi-reporters/issues/33) ([3cf4571](https://github.com/stanleyhlng/mocha-multi-reporters/commit/3cf45711cabd0dd6ec937cc1c6206360a958c226))
-* support both mmroutput and cmroutput [#33](https://github.com/stanleyhlng/mocha-multi-reporters/issues/33) ([24e642d](https://github.com/stanleyhlng/mocha-multi-reporters/commit/24e642d0c8709c4b81dcedf1678bcf7df56b9087))
-* support both mmroutput and cmroutput [#33](https://github.com/stanleyhlng/mocha-multi-reporters/issues/33) ([891b576](https://github.com/stanleyhlng/mocha-multi-reporters/commit/891b576b916785c0a00cbd3d99cfd88ef77ba913))
-* support Mocha 12's class-based Base reporter ([#113](https://github.com/stanleyhlng/mocha-multi-reporters/issues/113)) ([a1e4e64](https://github.com/stanleyhlng/mocha-multi-reporters/commit/a1e4e645eab1604d257d16216d2216e9ca1a5dce)), closes [#112](https://github.com/stanleyhlng/mocha-multi-reporters/issues/112) [#111](https://github.com/stanleyhlng/mocha-multi-reporters/issues/111) [#111](https://github.com/stanleyhlng/mocha-multi-reporters/issues/111)
-
 ## [1.5.1](https://github.com/stanleyhlng/mocha-multi-reporters/compare/v1.5.0...v1.5.1) (2020-11-04)
 
 ### Bugs
