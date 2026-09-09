@@ -199,6 +199,25 @@ describe('lib/MultiReporters', function () {
                 });
             });
 
+            describe('#custom-esm-default-reporter', function () {
+                const {EsmReporterStub} = require('../custom-esm-default-reporter');
+
+                beforeEach(function() {
+                    options = {
+                        execute: true,
+                        reporterOptions: {
+                            configFile: 'tests/custom-esm-default-config.json'
+                        }
+                    };
+                    reporter = new mocha._reporter(runner, options);
+                });
+
+                it('unwraps the ESM default export and constructs the reporter', function () {
+                    expect(reporter._reporters).to.have.lengthOf(1);
+                    expect(reporter._reporters[0]).to.be.instanceof(EsmReporterStub);
+                });
+            });
+
             describe('#custom-erring-internal-reporter', function () {
                 beforeEach(function() {
                     options = {
